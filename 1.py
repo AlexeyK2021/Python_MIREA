@@ -20,4 +20,5 @@ def fast_mul_gen(y):
         print('Entered x not equals 12 or 16!')
     
 
-fast_mul_gen(int(input()))
+if __name__ == "__main__":
+    fast_mul_gen(int(input()))

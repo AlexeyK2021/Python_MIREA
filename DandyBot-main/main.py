@@ -180,5 +180,5 @@ def start_game():
     root.after(0, update)
     root.mainloop()
 
-
-start_game()
+if __name__ == "__main__":
+    start_game()
