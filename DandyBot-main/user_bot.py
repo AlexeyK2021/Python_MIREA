@@ -46,7 +46,13 @@
         elif check("wall", x + 1, y) or check("wall", x + 1, y + 1) or check("wall", x + 1, y - 1):
             return "down"
 
-    elif check("level"):
+    elif check("level") == 4:
+        print(f"x={x}; y={y}")
         if check("gold", x, y) > 0:
             return "take"
-    
+        elif check("wall", x + 1, y):
+            return "up"
+        elif check("wall", x, y + 1) or check("wall", x + 2, y + 1) and check("wall", x + 2, y + 2):
+            return "right"
+        elif check("wall", x - 1, y+1) and not check("wall", x, y + 1):
+            return "down"
