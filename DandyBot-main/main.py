@@ -30,7 +30,7 @@ class Board:
         self.tileset = load_tileset(game["tileset"])
         self.screen = PliTk(canvas, 0, 0, 0, 0, self.tileset, SCALE)
         self.load_players()
-        self.level_index = 0
+        self.level_index = 3
         self.load_level()
 
     def load_players(self):

@@ -43,15 +43,32 @@
             return "down"
 
     elif check("level") == 4:
-        print(f"x={x}; y={y}")
-        if (check("wall", x - 1, y) or check("wall", x - 1, y + 1)) and not check("wall", x, y + 1):
-            return "down"
-
-        elif (check("wall", x, y + 1) or check("wall", x + 1, y + 1)) and not check("wall", x + 1, y):
-            return "right"
-
-        elif (check("wall", x, y - 1) or check("wall", x - 1, y - 1)) and not check("wall", x - 1, y):
+        if not check("wall", x - 1, y) and check('wall', x + 1, y - 1) \
+                and check('wall', x + 1, y - 2) and check('wall', x - 2, y - 1) \
+                and check('wall', x - 2, y - 2) and check('wall', x - 3, y - 2) and check('wall', x - 3, y - 1):
             return "left"
 
-        elif (check("wall", x + 1, y) or check("wall", x + 1, y - 1)) and not check("wall", x, y - 1):
-            return "up"
+        elif not check("wall", x + 1, y) and check('wall', x - 1, y + 1) \
+                and check("wall", x - 2, y + 1) and check('wall', x - 1, y + 2) \
+                and check('wall', x - 2, y + 2) and check("wall", x + 2, y + 1):
+            return "right"
+
+        elif check("wall", x + 1, y + 1) and not check("wall", x, y - 1):
+            if check("wall", x + 1, y):
+                return "up"
+            return "right"
+
+        elif check("wall", x - 1, y + 1):
+            if not check("wall", x, y + 1):
+                return "down"
+            return "right"
+
+        elif check("wall", x + 1, y - 1):
+            if not check("wall", x, y - 1):
+                return "up"
+            return "left"
+
+        elif check("wall", x - 1, y - 1):
+            if not check("wall", x - 1, y):
+                return "left"
+            return "down"
