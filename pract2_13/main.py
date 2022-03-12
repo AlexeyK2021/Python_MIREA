@@ -1,23 +1,25 @@
-import os
+import glob
+import os.path
+
+graph = ["", "digraph A {"]
 
 
-def get_hierarchy(path):
-    pass
+def add_to_graph(point_a, point_b):
+    # point_a = point_a if not point_a == '..' else 'this'
+    graph.append(f"\"{point_a}\" -> \"{point_b}\";")
+    # print(f"{point_a} -> {point_b}")
 
 
-def is_file(file):
-    filename, ext = file.split(".")
-    return len(ext) > 0
-
-
-def generate_graph(files):
-    graph = "digraph A {\n"
-    for file in files:
-        graph.join()
-
-    graph.join("\n}")
-    return graph
+def generate_graph(path):
+    for smth in glob.glob(path + '/*'):
+        if os.path.isdir(smth):
+            add_to_graph(path[path.rfind("/") + 1:len(path)], smth[len(path) + 1:len(smth)])
+            generate_graph(smth)
+        elif os.path.isfile(smth):
+            add_to_graph(path[path.rfind("/") + 1:len(path)], smth[len(path) + 1:len(smth)])
 
 
 if __name__ == "__main__":
-    print("00")
+    generate_graph(input())
+    graph.append("}")
+    print(*graph, sep="\n")
