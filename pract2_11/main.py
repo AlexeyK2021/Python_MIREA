@@ -1,3 +1,10 @@
+from itertools import groupby
+
+
+def rle_encode(data):
+    return [(k, len(list(g))) for k, g in groupby(data)]
+
+
 def encrypt(text):
     l = len(text)
     word_num = 0
@@ -29,8 +36,11 @@ def decrypt(encrypted_phrase, word_num):
 
 
 if __name__ == "__main__":
-    text, key = encrypt("ABACABA")
+    text_ = "ABACABA"
+    print(*rle_encode(text_))
+    text, key = encrypt(text_)
     print(f"Encrypted text: {text}, key: {key}")
+    print(*rle_encode(text))
 
     decrypted_text = decrypt(text, key)
     print(f"Decrypted text: {decrypted_text}")
