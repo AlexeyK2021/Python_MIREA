@@ -4,9 +4,10 @@ setup(
     name='Experimental',
     version='1.1',
     packages=['Package'],
-    url='',
+    url='no',
     license='not yet',
     author='Alexey Kalashnikov',
     author_email='',
-    description=''
+    description='',
+    data_files=['Package/file.json']
 )
