@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../pract3_11/.idea/pract3_11.iml" filepath="$PROJECT_DIR$/../pract3_11/.idea/pract3_11.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pract4_.iml" filepath="$PROJECT_DIR$/.idea/pract4_.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pract4_4/.idea/pract4_4.iml" filepath="$PROJECT_DIR$/../pract4_4/.idea/pract4_4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../task9/.idea/task9.iml" filepath="$PROJECT_DIR$/../task9/.idea/task9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pract4_5/.idea/pract4_5.iml" filepath="$PROJECT_DIR$/../pract4_5/.idea/pract4_5.iml" />
     </modules>
   </component>
 </project>
