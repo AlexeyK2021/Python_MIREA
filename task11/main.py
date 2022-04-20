@@ -37,8 +37,8 @@ def parse_a(data, offset):
     result = {}
     offset_ = offset
     c_link, b_size, b_link = struct. \
-        unpack('III', data[offset_:offset_ + struct.calcsize('III')])
-    offset_ += struct.calcsize('III')
+        unpack('III', data[offset_:offset_ + struct.calcsize('>III')])
+    offset_ += struct.calcsize('>III')
     offset_ = b_link
     a1_arr = []
     for i in range(b_size):
@@ -53,10 +53,10 @@ def parse_b(data, offset):
     result = {}
     offset_ = offset
     result['B1'] = struct \
-        .unpack('>b', data[offset_:offset_ + struct.calcsize('>b')])[0]
+        .unpack('b', data[offset_:offset_ + struct.calcsize('>b')])[0]
     offset_ += struct.calcsize('>b')
     result['B2'] = struct \
-        .unpack('>B', data[offset_:offset_ + struct.calcsize('>B')])[0]
+        .unpack('B', data[offset_:offset_ + struct.calcsize('>B')])[0]
     offset_ += struct.calcsize('>B')
     return result, offset_
 
@@ -70,11 +70,11 @@ def parse_c(data, offset):
     result['C4'] = parse_e(data, 20)[0]
     offset_ = 103
     result['C5'] = struct \
-        .unpack('>B', data[offset_:offset_ + struct.calcsize('B')])[0]
-    offset_ += struct.calcsize('B')
+        .unpack('>B', data[offset_:offset_ + struct.calcsize('>B')])[0]
+    offset_ += struct.calcsize('>B')
     result['C6'] = struct \
-        .unpack('>q', data[offset_:offset_ + struct.calcsize('q')])[0]
-    offset_ += struct.calcsize('q')
+        .unpack('>q', data[offset_:offset_ + struct.calcsize('>q')])[0]
+    offset_ += struct.calcsize('>q')
     return result, offset_
 
 
@@ -82,11 +82,11 @@ def parse_d(data, offset):
     result = {}
     offset_ = offset
     result['D1'] = struct \
-        .unpack('>f', data[offset_:offset_ + struct.calcsize('f')])[0]
-    offset_ += struct.calcsize('f')
+        .unpack('>f', data[offset_:offset_ + struct.calcsize('>f')])[0]
+    offset_ += struct.calcsize('>f')
     result['D2'] = struct \
-        .unpack('>f', data[offset_:offset_ + struct.calcsize('f')])[0]
-    offset_ += struct.calcsize('f')
+        .unpack('>f', data[offset_:offset_ + struct.calcsize('>f')])[0]
+    offset_ += struct.calcsize('>f')
     return result, offset_
 
 
@@ -94,19 +94,19 @@ def parse_e(data, offset):
     result = {}
     offset_ = offset
     result['E1'] = struct \
-        .unpack('>b', data[offset_:offset_ + struct.calcsize('b')])[0]
-    offset_ = offset_ + struct.calcsize('b')
+        .unpack('>b', data[offset_:offset_ + struct.calcsize('>b')])[0]
+    offset_ = offset_ + struct.calcsize('>b')
     result['E2'] = struct \
-        .unpack('>q', data[offset_:offset_ + struct.calcsize('q')])[0]
-    offset_ = offset_ + struct.calcsize('q')
+        .unpack('>q', data[offset_:offset_ + struct.calcsize('>q')])[0]
+    offset_ = offset_ + struct.calcsize('>q')
     result['E3'], offset_ = parse_array(data, offset_, 'L', 4)
     return result, offset_
 
 
 def parse_array(data, offset, type, len):
     return list(struct.unpack(f'>{len}{type}',
-                              data[offset:offset + struct.calcsize(f'{len}{type}')])), \
-           offset + struct.calcsize(f'{len}{type}')
+                              data[offset:offset + struct.calcsize(f'>{len}{type}')])), \
+           offset + struct.calcsize(f'>{len}{type}')
 
 
 # def unpack_helper(data, fmt):
