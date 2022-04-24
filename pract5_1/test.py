@@ -10,7 +10,7 @@ def test_2():
 
 
 def test_3():
-    assert calc("5 /0") == 'Деление на ноль'
+    assert calc("5 / 0") == 'Деление на ноль'
 
 
 if __name__ == "__main__":
