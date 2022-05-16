@@ -136,11 +136,13 @@ def make_model(game, start_state):
         visited.append(curr_state)
         graph[d2t(curr_state)] = list()
         for name, action in game[curr_state['room']].items():
-            new_state = action(curr_state)
-            if new_state not in visited and new_state not in to_visit:
-                to_visit.append(new_state)
-            graph[d2t(curr_state)].append(d2t(new_state))
-
+            try:
+                new_state = action(curr_state)
+                if new_state not in visited and new_state not in to_visit:
+                    to_visit.append(new_state)
+                graph[d2t(curr_state)].append(d2t(new_state))
+            except Exception:
+                pass
     return graph
 
 
