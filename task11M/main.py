@@ -52,7 +52,7 @@ def parse_b(data, offset):
     offset += struct.calcsize('>I')
     result['B2'] = \
         b''.join(struct.unpack(f'>{size}c', data[addr:addr + struct.calcsize(f'>{size}c')])) \
-            .decode('ascii')
+        .decode('ascii')
 
     addr += struct.calcsize('>c') * size
     result['B3'] = parse_d(data, addr)
