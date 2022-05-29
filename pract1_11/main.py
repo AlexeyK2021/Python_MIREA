@@ -12,6 +12,7 @@ def fast_mul(x, y):
 
 
 def fast_mul_gen(y):
+
     pass
     # TODO it
 
