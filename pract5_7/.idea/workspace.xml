@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18735f6a-ace2-4438-ae2b-b42a5a99581a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task11_22/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../task11_22/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="18735f6a-ace2-4438-ae2b-b42a5a99581a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +98,7 @@
       <workItem from="1650867391094" duration="1299000" />
       <workItem from="1650868712489" duration="884000" />
       <workItem from="1650869614870" duration="8954000" />
-      <workItem from="1652684685567" duration="1339000" />
+      <workItem from="1652684685567" duration="1561000" />
     </task>
     <servers />
   </component>
