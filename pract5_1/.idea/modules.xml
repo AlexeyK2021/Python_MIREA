@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/pract5_1.iml" filepath="$PROJECT_DIR$/.idea/pract5_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pract5_2/.idea/pract5_2.iml" filepath="$PROJECT_DIR$/../pract5_2/.idea/pract5_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pract6_11/.idea/pract6_11.iml" filepath="$PROJECT_DIR$/../pract6_11/.idea/pract6_11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pract6_12/.idea/pract6_12.iml" filepath="$PROJECT_DIR$/../pract6_12/.idea/pract6_12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pract6_6/.idea/pract6_6.iml" filepath="$PROJECT_DIR$/../pract6_6/.idea/pract6_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pract6_7/.idea/pract6_7.iml" filepath="$PROJECT_DIR$/../pract6_7/.idea/pract6_7.iml" />
     </modules>
   </component>
 </project>
