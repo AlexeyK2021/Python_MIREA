@@ -29,9 +29,9 @@ def is_happy(agent_x, agent_y, data):
     for y in range(size_y):
         for x in range(size_x):
             if x != agent_x and y != agent_y and distance(agent_x, x, agent_y, y) <= tolerance_dist:
+                squares_count += 1
                 if data[agent_y][agent_x] != data[y][x]:
                     not_like_agents += 1
-                squares_count += 1
 
     if not_like_agents / squares_count > tolerance:
         return False
@@ -60,25 +60,25 @@ def distance(curr_x, target_x, curr_y, target_y):
 
 
 def generate_map(data):
-    plt.imshow(data, cmap="YlOrRd")
+    plt.imshow(data)
     plt.show()
 
 
 if __name__ == '__main__':
-    population = 75
-    size_x = 10
-    size_y = 10
+    population = 100
+    size_x = 20
+    size_y = 20
     groups_ratio = 0.5
     tolerance = 0.5
     tolerance_dist = 2
-    modelling_steps = 100
-    segregation_time = 500
+    modelling_steps = 50
+    segregation_time = 300
 
     data = generate_agents(population, size_x, size_y, groups_ratio)
     generate_map(data)
     for i in range(segregation_time):
         print(i)
         data = move_agents(data)
-        # if i % modelling_steps == 0:
-        #     generate_map(data)
+        if i % modelling_steps == 0:
+            generate_map(data)
     generate_map(data)
