@@ -60,19 +60,19 @@ def distance(curr_x, target_x, curr_y, target_y):
 
 
 def generate_map(data):
-    plt.imshow(data)
+    plt.imshow(data, cmap="CMRmap_r")
     plt.show()
 
 
 if __name__ == '__main__':
-    population = 100
+    population = 200
     size_x = 20
     size_y = 20
     groups_ratio = 0.5
     tolerance = 0.5
     tolerance_dist = 2
     modelling_steps = 50
-    segregation_time = 300
+    segregation_time = 200
 
     data = generate_agents(population, size_x, size_y, groups_ratio)
     generate_map(data)
