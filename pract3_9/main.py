@@ -39,8 +39,8 @@ def is_happy(agent_x, agent_y, data):
 
 
 def move_agents(data):
-    count = 0
-    while count < 5:
+    move = True
+    while move:
         random_agent_x = random.randint(0, size_x - 1)
         random_agent_y = random.randint(0, size_y - 1)
         if data[random_agent_y][random_agent_x] != 0 and not is_happy(random_agent_x, random_agent_y, data):
@@ -50,7 +50,7 @@ def move_agents(data):
                 if data[random_new_y][random_new_x] == 0:
                     data[random_new_y][random_new_x] = data[random_agent_y][random_agent_x]
                     data[random_agent_y][random_agent_x] = 0
-                    count += 1
+                    move = False
                     break
     return data
 
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     tolerance = 0.5
     tolerance_dist = 2
     modelling_steps = 50
-    segregation_time = 200
+    segregation_time = 500
 
     data = generate_agents(population, size_x, size_y, groups_ratio)
     generate_map(data)
