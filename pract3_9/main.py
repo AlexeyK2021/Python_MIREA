@@ -25,10 +25,10 @@ def generate_agents(count, size_x, size_y, ratio):
 
 def is_happy(agent_x, agent_y, data):
     not_like_agents = 0
-    squares_count = 0
+    squares_count = 1
     for y in range(size_y):
         for x in range(size_x):
-            if x != agent_x and y != agent_y and distance(agent_x, x, agent_y, y) <= tolerance_dist:
+            if x != agent_x and y != agent_y and data[y][x] != 0 and distance(agent_x, x, agent_y, y) <= tolerance_dist:
                 squares_count += 1
                 if data[agent_y][agent_x] != data[y][x]:
                     not_like_agents += 1
@@ -64,21 +64,44 @@ def generate_map(data):
     plt.show()
 
 
+def happiness(data):
+    happy_agents = 0
+    for y in range(size_y):
+        for x in range(size_x):
+            if data[y][x] != 0 and is_happy(x, y, data):
+                happy_agents += 1
+    return happy_agents
+
+
 if __name__ == '__main__':
-    population = 200
+    population = 310
     size_x = 20
     size_y = 20
     groups_ratio = 0.5
-    tolerance = 0.5
-    tolerance_dist = 2
-    modelling_steps = 50
-    segregation_time = 500
+    tolerance = 0.4
+    tolerance_dist = 3
+    modelling_steps = 20
+    segregation_time = 450
 
+    happy_agents = []
+    xvalues = []
     data = generate_agents(population, size_x, size_y, groups_ratio)
     generate_map(data)
+    happy_agents.append(happiness(data))
+    xvalues.append("start")
+
     for i in range(segregation_time):
         print(i)
         data = move_agents(data)
         if i % modelling_steps == 0:
-            generate_map(data)
+            # generate_map(data)
+            happy_agents.append(happiness(data))
+            xvalues.append(i)
     generate_map(data)
+    xvalues.append("end")
+    happy_agents.append(happiness(data))
+
+    plt.plot(xvalues, happy_agents)
+    plt.xlabel("Simulation step")
+    plt.ylabel("Number of happy agents")
+    plt.show()
